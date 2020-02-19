@@ -4,38 +4,15 @@ from copy import deepcopy
 
 def word_ladder(start_word, end_word, dictionary_file='words5.dict'):
     '''
-    Returns a list satisfying the following properties:
-
-    1. the first element is `start_word`
-    2. the last element is `end_word`
-    3. elements at index i and i+1 are `_adjacent`
-    4. all elements are entries in the `dictionary_file` file
-
-    For example, running the command
-    ```
-    word_ladder('stone','money')
-    ```
-    may give the output
-    ```
-    ['stone', 'shone', 'phone', 'phony', 'peony', 'penny', 'benny', 'bonny', 'boney', 'money']
-    ```
-    but the possible outputs are not unique,
-    so you may also get the output
-    ```
-    ['stone', 'shone', 'shote', 'shots', 'soots', 'hoots', 'hooty', 'hooey', 'honey', 'money']
-    ```
-    (We cannot use doctests here because the outputs are not unique.)
-
-    Whenever it is impossible to generate a word ladder between the two words,
-    the function returns `None`.
+   A function that creates a word ladder that links one word to another in the quickest possible way
     '''
-    wordList = []
-    wordList.append(start_word)
-    ourQueue = deque([end_word])
-    ourQueue.append(wordList[0])
+    wordList = []         #Creating A Stack
+    wordList.append(start_word)  #pushing our starting word to the stack
+    ourQueue = deque([end_word])    #starting a queue with our target word
+    ourQueue.append(wordList[0])    #appending the queue with the beginning word, enqueuing our stack to the queue
     
     
-    while len(ourQueue) > 0:
+    while len(ourQueue) > 0:        #while our queue is non-empty
         ourQueue.pop()
         for x in range(len(dictionary_file)-1):
             current = dictionary_file[x]
@@ -68,12 +45,7 @@ def verify_word_ladder(ladder):
 def _adjacent(word1, word2):
     '''
     Returns True if the input words differ by only a single character;
-    returns False otherwise.
-
-    >>> _adjacent('phone','phony')
-    True
-    >>> _adjacent('stone','money')
-    False
+    returns False otherwise
     '''
     
     if len(word1)== len(word2):  #checks if both words are the same length
