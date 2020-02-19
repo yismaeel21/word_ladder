@@ -1,5 +1,5 @@
 #!/bin/python3
-
+from collections import deque
 
 def word_ladder(start_word, end_word, dictionary_file='words5.dict'):
     '''
@@ -28,13 +28,32 @@ def word_ladder(start_word, end_word, dictionary_file='words5.dict'):
     Whenever it is impossible to generate a word ladder between the two words,
     the function returns `None`.
     '''
-
+    ourStack = []
+    ourStack.append(start_word)
+    ourQueue = deque(end_word)
+    
+    while len(ourQueue >0):
+        ourLadder = ourQueue.popleft()
+        nxtWord = dictionary_files[ourLadder[-1]]
+        for x in nxtWord:
+            if _adjacent(start_word,end_word):
+                wordList = list(ladder)
+                wordList.append(nxtWord)
+            if nxt_word == end_word:
+                return wordList
+            if nxt_word not in ourStack:
+                ourStack.append(nxt_word)
+                ourQueue.append(wordList)
+   return None
+    
 
 def verify_word_ladder(ladder):
     '''
     Returns True if each entry of the input list is adjacent to its neighbors;
     otherwise returns False.
     '''
+    if len(ladder) == 0:            #if it's an empty list, return false
+        return False
     for x in range(len(ladder)-1):  #for loop that runs the entire length of the ladder list
         current = ladder[x]         #setting our current value
         nxt = ladder[x+1]           #setting our neighboring value
