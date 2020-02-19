@@ -35,8 +35,12 @@ def verify_word_ladder(ladder):
     Returns True if each entry of the input list is adjacent to its neighbors;
     otherwise returns False.
     '''
-    
-
+    for x in range(len(ladder)-1):  #for loop that runs the entire length of the ladder list
+        current = ladder[x]         #setting our current value
+        nxt = ladder[x+1]           #setting our neighboring value
+        if _adjacent(current, nxt) == False:    #checking if they're not adjacent
+            return False                        #if not returns false, otherwise keep going
+    return True
 
 def _adjacent(word1, word2):
     '''
