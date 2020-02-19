@@ -37,8 +37,8 @@ def word_ladder(start_word, end_word, dictionary_file='words5.dict'):
     while len(ourQueue) > 0:
         ourQueue.pop()
         for x in range(len(dictionary_file)-1)):
-            current = dictionary_files[x]
-            nxt = dictionary_files[x+1]
+            current = dictionary_file[x]
+            nxt = dictionary_file[x+1]
             if _adjacent(current,nxt):
                 if nxt == end_word:
                     wordList.append(nxt)
@@ -47,7 +47,7 @@ def word_ladder(start_word, end_word, dictionary_file='words5.dict'):
                 copyList = wordList.deepCopy()
                 copyList.push(nxt)
                 copyList.pop()
-                dictionary_files.remove(current)
+                dictionary_file.remove(current)
     return None
 
 def verify_word_ladder(ladder):
