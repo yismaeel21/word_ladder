@@ -35,6 +35,7 @@ def verify_word_ladder(ladder):
     Returns True if each entry of the input list is adjacent to its neighbors;
     otherwise returns False.
     '''
+    
 
 
 def _adjacent(word1, word2):
@@ -47,3 +48,14 @@ def _adjacent(word1, word2):
     >>> _adjacent('stone','money')
     False
     '''
+    
+    if len(word1)== len(word2):  #checks if both words are the same length
+        numdifs = 0              #assuming there are no differences between the two words   
+        for x,y in zip(word1, word2):      #pairing the words one for one and seeing if they're similar
+            if x!= y:              #if they're not similar, we increment numdifs by one
+                if numdifs:         #if numdifs is 1 or greater, they're not adjacent
+                    return False
+                numdifs +=1
+        return True
+    else:
+        return False
