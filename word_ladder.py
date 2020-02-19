@@ -44,7 +44,7 @@ def word_ladder(start_word, end_word, dictionary_file='words5.dict'):
                     wordList.append(nxt)
                     return wordList
                 wordList.append(nxt)
-                copyList = wordList.deepcopy()
+                copyList = deepcopy(wordList)
                 copyList.push(nxt)
                 copyList.pop()
                 dictionary_file.remove(current)
