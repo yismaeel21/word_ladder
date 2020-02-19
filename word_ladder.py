@@ -1,5 +1,6 @@
 #!/bin/python3
 from collections import deque
+from copy import deepcopy
 
 def word_ladder(start_word, end_word, dictionary_file='words5.dict'):
     '''
@@ -28,23 +29,23 @@ def word_ladder(start_word, end_word, dictionary_file='words5.dict'):
     Whenever it is impossible to generate a word ladder between the two words,
     the function returns `None`.
     '''
-    ourStack = []
-    ourStack.append(start_word)
+    wordList = []
+    wordList.append(start_word)
     ourQueue = deque([end_word])
-    
+    ourQueue.appendleft(wordList)
     while len(ourQueue >0):
-        ourLadder = ourQueue.popleft()
-        nxtWord = dictionary_files[ourLadder[-1]]
-        for x in nxtWord:
-            if _adjacent(start_word,end_word):
-                wordList = list(ladder)
-                wordList.append(nxtWord)
-            if nxt_word == end_word:
-                return wordList
-            if nxt_word not in ourStack:
-                ourStack.append(nxt_word)
-                ourQueue.append(wordList)
-   return ourStack
+        ourQueue.pop()
+        for x in range(len(dictionary_files-1)):
+            current = dictionary_files[x]
+            nxt = dictionary_files[x+1]
+            if _adjacent(current,nxt):
+                if nxt == end_word:
+                    wordList.append(nxt)
+                    return wordList
+                copyList = wordList.deepCopy()
+                copyList.push()
+                copyList.popleft()
+                dictionary_files.remove(current)
     
 
 def verify_word_ladder(ladder):
