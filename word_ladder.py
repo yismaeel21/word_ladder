@@ -44,7 +44,7 @@ def word_ladder(start_word, end_word, dictionary_file='words5.dict'):
             if nxt_word not in ourStack:
                 ourStack.append(nxt_word)
                 ourQueue.append(wordList)
-   return None
+   return ourStack
     
 
 def verify_word_ladder(ladder):
