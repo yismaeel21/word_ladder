@@ -9,19 +9,17 @@ def word_ladder(start_word, end_word, dictionary_file='words5.dict'):
     wordList = []         #Creating A Stack
     wordList.append(start_word)  #pushing our starting word to the stack
     ourQueue = deque([end_word])    #starting a queue with our target word
-    ourQueue.append(wordList[0])    #appending the queue with the beginning word, enqueuing our stack to the queue
+    ourQueue.append(wordList[0])    #enqueuing stack onto queue
     
     
     while len(ourQueue) > 0:        #while our queue is non-empty
-        ourQueue.pop()
-        for x in range(len(dictionary_file)-1):
-            current = dictionary_file[x]
-            nxt = dictionary_file[x+1]
-            if _adjacent(current,nxt):
-                if nxt == end_word:
-                    wordList.append(nxt)
+        ourQueue.pop()              #dequeu stack
+        for x in range(len(dictionary_file)-1): #for each word in the dictionary
+            current = dictionary_file[x]        
+            if _adjacent(current,ourQueue[0]):          #if the word is adjacent to top of stack
+                if current == end_word:                     #if this word is the end word
+                    wordList.append(current)            #append the list and this is our word ladder
                     return wordList
-                wordList.append(nxt)
                 copyList = deepcopy(wordList)
                 copyList.insert(0,nxt)
                 copyList.pop()
