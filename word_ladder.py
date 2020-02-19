@@ -47,7 +47,7 @@ def word_ladder(start_word, end_word, dictionary_file='words5.dict'):
                 copyList = deepcopy(wordList)
                 copyList.insert(0,nxt)
                 copyList.pop()
-                dictionary_file.remove(current)
+                dictionary_file.replace(current,"")
     return None
 
 def verify_word_ladder(ladder):
