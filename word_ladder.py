@@ -34,7 +34,7 @@ def word_ladder(start_word, end_word, dictionary_file='words5.dict'):
     ourQueue = deque([end_word])
     ourQueue.append(wordList[0])
     
-    while len(ourQueue >0):
+    while len(ourQueue) > 0:
         ourQueue.pop()
         for x in range(len(dictionary_files-1)):
             current = dictionary_files[x]
