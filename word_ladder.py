@@ -30,7 +30,7 @@ def word_ladder(start_word, end_word, dictionary_file='words5.dict'):
     '''
     ourStack = []
     ourStack.append(start_word)
-    ourQueue = deque(end_word)
+    ourQueue = deque([end_word])
     
     while len(ourQueue >0):
         ourLadder = ourQueue.popleft()
