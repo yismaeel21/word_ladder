@@ -36,7 +36,7 @@ def word_ladder(start_word, end_word, dictionary_file='words5.dict'):
     
     while len(ourQueue) > 0:
         ourQueue.pop()
-        for x in range(len(dictionary_files-1)):
+        for x in range(len(dictionary_file)-1)):
             current = dictionary_files[x]
             nxt = dictionary_files[x+1]
             if _adjacent(current,nxt):
