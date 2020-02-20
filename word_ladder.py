@@ -1,4 +1,3 @@
-#!/bin/python3
 from collections import deque
 from copy import deepcopy
 
@@ -13,7 +12,9 @@ def word_ladder(start_word, end_word, dictionary_file='words5.dict'):
    
     f = open(dictionary_file).readlines()
     L = []
-    
+    if start_word == end_word:
+        L.append(start_word)
+        return L
     for x in f:
         noLines= x.replace("\n","")
         L.append(noLines)
