@@ -20,7 +20,7 @@ def word_ladder(start_word, end_word, dictionary_file='words5.dict'):
     while len(ourQueue) != 0:        #while our queue is non-empty
         i = ourQ.pop()              #dequeu stack from our queue
         for word in L: #for each word in the dictionary
-            if _adjacent(word,wordList[-1]):          #if the word is adjacent to top of stack
+            if _adjacent(word,wordList[0]):          #if the word is adjacent to top of stack
                 if word == end_word:                     #if this word is the end word
                     wordList.append(word)            #append the list and this is our word ladder
                     return wordList
