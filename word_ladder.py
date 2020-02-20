@@ -36,7 +36,7 @@ def verify_word_ladder(ladder):
     '''
     if ladder == []:           #if it's an empty list, return false
         return False
-    for x in range(len(ladder)-1):  #for loop that runs the entire length of the ladder list
+    for x in range(len(ladder)):  #for loop that runs the entire length of the ladder list
         current = ladder[x]         #setting our current value
         nxt = ladder[x+1]           #setting our neighboring value
         if _adjacent(current, nxt) == False:    #checking if they're not adjacent
