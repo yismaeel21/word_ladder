@@ -17,7 +17,7 @@ def word_ladder(start_word, end_word, dictionary_file='words5.dict'):
     for x in f:
         noLines= x.replace("\n","")
         L.append(noLines)
-    while len(ourQueue) != 0:        #while our queue is non-empty
+    while len(ourQ) != 0:        #while our queue is non-empty
         i = ourQ.pop()              #dequeu stack from our queue
         for word in L: #for each word in the dictionary
             if _adjacent(word,wordList[0]):          #if the word is adjacent to top of stack
@@ -26,7 +26,7 @@ def word_ladder(start_word, end_word, dictionary_file='words5.dict'):
                     return wordList
                 copyList = deepcopy(wordList)
                 copyList.append(word)
-                ourQueue.appendleft(copyList)
+                ourQ.appendleft(copyList)
                 dictionary_file.pop(word)
     return None
 
