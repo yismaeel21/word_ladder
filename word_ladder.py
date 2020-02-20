@@ -34,7 +34,7 @@ def verify_word_ladder(ladder):
     '''
     if ladder == None:
         return False
-    if len(ladder) == 0:            #if it's an empty list, return false
+    elif len(ladder) == 0:            #if it's an empty list, return false
         return False
     for x in range(len(ladder)-1):  #for loop that runs the entire length of the ladder list
         current = ladder[x]         #setting our current value
