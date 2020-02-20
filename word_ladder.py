@@ -29,7 +29,7 @@ def word_ladder(start_word, end_word, dictionary_file='words5.dict'):
                 copyList = deepcopy(ourStack)
                 copyList.append(word)
                 ourQ.appendleft(copyList)
-                words.pop(word)
+                words.remove(word)
     return None
 
 def verify_word_ladder(ladder):
