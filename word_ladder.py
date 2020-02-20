@@ -5,27 +5,29 @@ def word_ladder(start_word, end_word, dictionary_file='words5.dict'):
     '''
    A function that creates a word ladder that links one word to another in the quickest possible way
     '''
-    wordList = []         #Creating A Stack
-    wordList.append(start_word)  #pushing our starting word to the stack
-    ourQ = deque()    #starting a queue with our target word
-    ourQ.append(wordList)    #enqueuing stack onto queue
-   
-    f = open(dictionary_file).readlines()
-    L = []
     if start_word == end_word:
-        L.append(start_word)
-        return L
-    for x in f:
-        noLines= x.replace("\n","")
-        L.append(noLines)
+        return [start_word]
+    ourStack = []         #Creating A Stack
+    ourStack.append(start_word)  #pushing our starting word to the stack
+    ourQ = deque()    #starting a queue with our target word
+    ourQ.append(ourStack)    #enqueuing stack onto queue
+   
+    word_file = open(dictionary_file).readlines()
+    words = []
+
+    for x in word_file:
+        words.append(x.strip("\n"))
+   
+
+
     while len(ourQ) != 0:        #while our queue is non-empty
         ourQ.pop()              #dequeu stack from our queue
         for word in L: #for each word in the dictionary
-            if _adjacent(word,wordList[0]):          #if the word is adjacent to top of stack
+            if _adjacent(word,ourStack[0]):          #if the word is adjacent to top of stack
                 if word == end_word:                     #if this word is the end word
-                    wordList.append(word)            #append the list and this is our word ladder
-                    return wordList
-                copyList = deepcopy(wordList)
+                    ourStack.append(word)            #append the list and this is our word ladder
+                    return ourStack
+                copyList = deepcopy(ourStack)
                 copyList.append(word)
                 ourQ.appendleft(copyList)
                 word = ""
