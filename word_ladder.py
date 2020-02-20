@@ -37,7 +37,8 @@ def verify_word_ladder(ladder):
     Returns True if each entry of the input list is adjacent to its neighbors;
     otherwise returns False.
     '''
-    print(ladder)
+    if type(ladder) == NoneType:
+        return False
     if ladder == []:
         return False
     for word1,word2 in zip(ladder, ladder[1:]):
