@@ -39,8 +39,6 @@ def verify_word_ladder(ladder):
     '''
     if ladder == []:
         return False
-    elif ladder == None:
-        return False
     for k in range(len(ladder)-1):
         if not _adjacent(ladder[k], ladder[k+1]):
             return False
