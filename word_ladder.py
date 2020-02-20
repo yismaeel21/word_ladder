@@ -12,13 +12,16 @@ def word_ladder(start_word, end_word, dictionary_file='words5.dict'):
     ourQueue.append(wordList)    #enqueuing stack onto queue
    
     f = open(dictionary_file).readlines()
-    
+    L = []
+    for x in f:
+        noLines= x.replace("\n","")
+        L.append(noLines)
     while len(ourQueue) > 0:        #while our queue is non-empty
         i = ourQueue.pop()              #dequeu stack from our queue
-        for x in f: #for each word in the dictionary
+        for x in L: #for each word in the dictionary
             if _adjacent(x,i):          #if the word is adjacent to top of stack
                 if x == end_word:                     #if this word is the end word
-                    wordList.append(current)            #append the list and this is our word ladder
+                    wordList.append(x)            #append the list and this is our word ladder
                     return wordList
                 copyList = deepcopy(wordList)
                 copyList.append(x)
