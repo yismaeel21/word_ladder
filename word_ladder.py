@@ -11,8 +11,7 @@ def word_ladder(start_word, end_word, dictionary_file='words5.dict'):
     ourQueue = deque()    #starting a queue with our target word
     ourQueue.append(wordList)    #enqueuing stack onto queue
    
-    f = open(dictionary_file)
-    f = f.readlines()
+    f = open(dictionary_file).readlines()
     while len(ourQueue) > 0:        #while our queue is non-empty
         i = ourQueue.pop()              #dequeu stack
         for x in range(len(f)): #for each word in the dictionary
