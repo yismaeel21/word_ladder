@@ -5,31 +5,34 @@ def word_ladder(start_word, end_word, dictionary_file='words5.dict'):
     '''
    A function that creates a word ladder that links one word to another in the quickest possible way
     '''
-    if start_word == end_word:
+   if start_word == end_word:
         return [start_word]
-    
+
     ourStack = []         #Creating A Stack
     ourStack.append(start_word)  #pushing our starting word to the stack
     ourQ = deque()    #starting a queue with our target word
-    ourQ.append(ourStack)    #enqueuing stack onto queue
-   
+    ourQ.appendleft(ourStack)    #enqueuing stack onto queue
     word_file = open(dictionary_file).readlines()
     words = []
 
     for x in word_file:
         words.append(x.strip("\n"))
-   
+
     while len(ourQ) > 0:        #while our queue is non-empty
-        ourQ.pop()              #dequeu stack from our queue
+        top = ourQ.popleft()
+        lastWord = top[-1]
         for word in words: #for each word in the dictionary
-            if _adjacent(word,ourStack[0]):          #if the word is adjacent to top of stack
-                if word == end_word:                     #if this word is the end word
-                    ourStack.append(word)            #append the list and this is our word ladder
-                    return ourStack
-                copyList = deepcopy(ourStack)
-                copyList.append(word)
-                ourQ.appendleft(copyList)
-                words.remove(word)  #word = ""
+            if _adjacent(word,lastWord):
+                stackCopy = copy.copy(top)
+                stackCopy.append(word)
+        #        print("stackCopy=", stackCopy)
+                ourQ.appendleft(stackCopy)
+       #         print("Len(Words)=",len(words))
+                if end_word == word:
+                    return stackCopy
+                words.remove(word)
+    #I think my issue stems from me changing the words file itself and after one iteration there ceases to be any words left in the list!
+    return
 
 def verify_word_ladder(ladder):
     '''
