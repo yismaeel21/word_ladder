@@ -23,7 +23,7 @@ def word_ladder(start_word, end_word, dictionary_file='words5.dict'):
         lastWord = top[-1]
         for word in words: #for each word in the dictionary
             if _adjacent(word,lastWord):
-                stackCopy = copy.copy(top)
+                stackCopy = deepcopy(top)
                 stackCopy.append(word)
         #        print("stackCopy=", stackCopy)
                 ourQ.appendleft(stackCopy)
