@@ -26,10 +26,10 @@ def word_ladder(start_word, end_word, dictionary_file='words5.dict'):
                 stackCopy = deepcopy(top)
                 stackCopy.append(word)
         #        print("stackCopy=", stackCopy)
-                ourQ.appendleft(stackCopy)
        #         print("Len(Words)=",len(words))
                 if end_word == word:
                     return stackCopy
+                ourQ.appendleft(stackCopy)
                 words.remove(word)
     #I think my issue stems from me changing the words file itself and after one iteration there ceases to be any words left in the list!
     return
