@@ -5,7 +5,7 @@ def word_ladder(start_word, end_word, dictionary_file='words5.dict'):
     '''
    A function that creates a word ladder that links one word to another in the quickest possible way
     '''
-   if start_word == end_word:
+    if start_word == end_word:
         return [start_word]
 
     ourStack = []         #Creating A Stack
