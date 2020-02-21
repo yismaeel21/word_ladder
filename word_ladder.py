@@ -19,7 +19,7 @@ def word_ladder(start_word, end_word, dictionary_file='words5.dict'):
         words.append(x.strip("\n"))
 
     while len(ourQ) > 0:        #while our queue is non-empty
-        top = ourQ.popleft()
+        top = ourQ.pop()
         lastWord = top[-1]
         for word in words: #for each word in the dictionary
             if _adjacent(word,lastWord):
