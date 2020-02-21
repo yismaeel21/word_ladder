@@ -50,7 +50,8 @@ def _adjacent(word1, word2):
     Returns True if the input words differ by only a single character;
     returns False otherwise
     '''
-    
+    if word1 == word2:
+        return False
     if len(word1)== len(word2):  #checks if both words are the same length
         numdifs = 0              #assuming there are no differences between the two words   
         for x,y in zip(word1, word2):      #pairing the words one for one and seeing if they're similar
