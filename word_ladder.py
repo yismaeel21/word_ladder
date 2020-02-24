@@ -35,7 +35,7 @@ def word_ladder(start_word, end_word, dictionary_file='words5.dict'):
                             stackCopy.pop(i)
                     return (stackCopy)
                 ourQ.appendleft(stackCopy)
-                words.remove(word)
+        words.remove(word)
 
 
 def verify_word_ladder(ladder):
