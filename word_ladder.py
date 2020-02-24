@@ -15,15 +15,14 @@ def word_ladder(start_word, end_word, dictionary_file='words5.dict'):
     ourQ.appendleft(ourStack)    #enqueuing stack onto queue
     word_file = open(dictionary_file).readlines()
     words = []
-    if start_word == "babes" and end_word == "child":
-        return word_ladder(end_word, start_word, dictionary_file = "words5.dict")
 
     
     for x in word_file:
         words.append(x.strip("\n"))
+    word_copy = copy.copy(words)
     while len(ourQ) != 0:        #while our queue is non-empty
         top = ourQ.pop()
-        for word in words: #for each word in the dictionary
+        for word in word_copy: #for each word in the dictionary
             if _adjacent(word,top[-1]):
                 stackCopy = copy.deepcopy(top)
                 stackCopy.append(word)
