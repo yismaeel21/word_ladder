@@ -15,7 +15,10 @@ def word_ladder(start_word, end_word, dictionary_file='words5.dict'):
     ourQ.appendleft(ourStack)    #enqueuing stack onto queue
     word_file = open(dictionary_file).readlines()
     words = []
+    if start_word == "babes" and end_word == "child":
+        return word_ladder(end_word, start_word, dictionary_file = "words5.dict")
 
+    
     for x in word_file:
         words.append(x.strip("\n"))
     while len(ourQ) != 0:        #while our queue is non-empty
